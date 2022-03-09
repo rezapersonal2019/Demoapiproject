@@ -40,20 +40,29 @@ public class HomeController {
 	public void BitBucketTokenSetup(@RequestBody ExternalTokens user) {
 		userService.saveUser(user);
 	}
-	
-	
-	  @RequestMapping("/gitapi") 
-	  public String getGitHubApi() throws Exception {
-	  return userService.doGetGitApi();
-	   }
-	 
-	  @RequestMapping("/jiraapi")
-	  public String getJiraApi() throws Exception {
-		  return userService.doGetJiraApi();
-	  }
-	
-	
-	
+
+	@RequestMapping("/gitapi")
+	public String getGitHubApi() throws Exception {
+		return userService.doGetGitApi();
+	}
+
+	@RequestMapping("/jiraapi")
+	public String getJiraApi() throws Exception {
+		return userService.doGetJiraApi();
+	}
+
+	@RequestMapping("/sprint")
+	public String getSprint() throws Exception {
+
+		return userService.doGetSprint();
+	}
+
+	@RequestMapping("/issueInSprint")
+	public String getAllIssueInSprint() throws Exception {
+
+		return userService.doGetAllIssueInSprint();
+	}
+
 	/*
 	 * @RequestMapping("gitapi") public List<String> getgithubApi(){ return
 	 * githubservice.githubApi(); }
