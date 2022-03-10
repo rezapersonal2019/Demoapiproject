@@ -50,11 +50,17 @@ public class HomeController {
 	public String getJiraApi() throws Exception {
 		return userService.doGetJiraApi();
 	}
+	
+	@RequestMapping("/jiraproject")
+	public String getAllProject() throws Exception {
 
-	@RequestMapping("/sprint")
+		return userService.doGetAllProject();
+	}
+
+	@RequestMapping("/jirasprint")
 	public String getSprint() throws Exception {
 
-		return userService.doGetSprint();
+		return userService.doGetAllSprint();
 	}
 
 	@RequestMapping("/issueInSprint")
