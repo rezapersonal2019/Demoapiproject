@@ -51,22 +51,57 @@ public class HomeController {
 		return userService.doGetJiraApi();
 	}
 	
-	@RequestMapping("/jiraproject")
+	@RequestMapping("/allprojectinborad")
 	public String getAllProject() throws Exception {
 
 		return userService.doGetAllProject();
 	}
 
-	@RequestMapping("/jirasprint")
-	public String getSprint() throws Exception {
+
+	@RequestMapping("/project")
+	public String getProject() throws Exception {
+
+		return userService.doGetProject();
+	}
+	
+	
+	
+	@RequestMapping("/allsprintinproject")
+	public String getAllSprint() throws Exception {
 
 		return userService.doGetAllSprint();
 	}
 
-	@RequestMapping("/issueInSprint")
-	public String getAllIssueInSprint() throws Exception {
+	@RequestMapping("/Onesprintinproject")
+	public String getOneSprintInProject() throws Exception {
 
-		return userService.doGetAllIssueInSprint();
+		return userService.doGetOneSprintFromProject();
+	}
+
+	
+	
+	@RequestMapping("/onesprintInSprints")
+	public String getSprintInSprints() throws Exception {
+
+		return userService.doGetOneSprintInSprints();
+	}
+
+	
+	@RequestMapping("/oneIssueInSprint")
+	public String getIssueInSprint() throws Exception {
+
+		return userService.doGetOneIssueInSprint();
+	}
+
+	@RequestMapping("/oneissueInSprintInproject")
+	public String getOneIssueInSprintInProject() throws Exception {
+
+		return userService.doGetOneIssueInSprintfromProject();
+	}
+	@RequestMapping("/allissueInSprintInproject")
+	public String getAllIssueInSprintInProject() throws Exception {
+
+		return userService.doGetAllIssueInSprintfromProject();
 	}
 
 	/*

@@ -46,6 +46,7 @@ public class UserService {
 
 	}
 
+	// Get issue in project
 	public String doGetJiraApi() throws IOException {
 
 		Request request = new Request.Builder().url("https://selim22.atlassian.net/rest/api/2/issue/TP-1")
@@ -59,20 +60,37 @@ public class UserService {
 		return response.body().string();
 
 	}
-	
-	
+
+	// Get all project in borad
+
 	public String doGetAllProject() throws IOException {
-		
-		Request request = new Request.Builder()
-				  .url("https://selim22.atlassian.net/rest/api/3/project/search")
-				  .method("GET", null)
-				  .addHeader("Authorization", "Basic c2VsaW1kLnJlemFAZ21haWwuY29tOjZuWVhoc1ZyVlFTdnk5cnpLemJQOUQwNQ==")
-				  .addHeader("Cookie", "atlassian.xsrf.token=9d4964b2-a15a-4258-b990-eaec7078709d_8e6ae7eecf627022c5ad0e21278fca9da9add903_lin")
-				  .build();
-				Response response = client.newCall(request).execute();
-				
-				return response.body().string();
+
+		Request request = new Request.Builder().url("https://selim22.atlassian.net/rest/api/3/project/search")
+				.method("GET", null)
+				.addHeader("Authorization", "Basic c2VsaW1kLnJlemFAZ21haWwuY29tOjZuWVhoc1ZyVlFTdnk5cnpLemJQOUQwNQ==")
+				.addHeader("Cookie",
+						"atlassian.xsrf.token=9d4964b2-a15a-4258-b990-eaec7078709d_8e6ae7eecf627022c5ad0e21278fca9da9add903_lin")
+				.build();
+		Response response = client.newCall(request).execute();
+
+		return response.body().string();
 	}
+
+	// Get one project in board
+	public String doGetProject() throws IOException {
+
+		Request request = new Request.Builder().url("https://selim22.atlassian.net/rest/api/3/project/BEST")
+				.method("GET", null)
+				.addHeader("Authorization", "Basic c2VsaW1kLnJlemFAZ21haWwuY29tOm9JeWdtZ3N6SmYwV0dHV09KaXVZMDFDNQ==")
+				.addHeader("Cookie",
+						"atlassian.xsrf.token=9d4964b2-a15a-4258-b990-eaec7078709d_cfec745e5e43bc62117da6c5f6922f2f98406a06_lin")
+				.build();
+		Response response = client.newCall(request).execute();
+
+		return response.body().string();
+	}
+
+	// Get all sprint from project
 
 	public String doGetAllSprint() throws IOException {
 
@@ -87,7 +105,65 @@ public class UserService {
 		return response.body().string();
 	}
 
-	public String doGetAllIssueInSprint() throws IOException {
+	// Get one sprint from project
+
+	public String doGetOneSprintFromProject() throws IOException {
+
+		Request request = new Request.Builder()
+				.url("https://selim22.atlassian.net/rest/agile/1.0/board/2/?selectedSprint=2").method("GET", null)
+				.addHeader("Authorization", "Basic c2VsaW1kLnJlemFAZ21haWwuY29tOm9JeWdtZ3N6SmYwV0dHV09KaXVZMDFDNQ==")
+				.addHeader("Cookie",
+						"atlassian.xsrf.token=9d4964b2-a15a-4258-b990-eaec7078709d_dbfb85561554a1e99d92965f87733bb3f2a1ebf7_lin")
+				.build();
+		Response response = client.newCall(request).execute();
+		return response.body().string();
+	}
+
+	// Get one sprint from sprints
+	public String doGetOneSprintInSprints() throws IOException {
+
+		Request request = new Request.Builder().url("https://selim22.atlassian.net/rest/agile/1.0/sprint/2")
+				.method("GET", null)
+				.addHeader("Authorization", "Basic c2VsaW1kLnJlemFAZ21haWwuY29tOm9JeWdtZ3N6SmYwV0dHV09KaXVZMDFDNQ==")
+				.addHeader("Cookie",
+						"atlassian.xsrf.token=9d4964b2-a15a-4258-b990-eaec7078709d_2486ce4200c0f67aa1f82138dbec7205915b2096_lin")
+				.build();
+		Response response = client.newCall(request).execute();
+
+		return response.body().string();
+	}
+
+	// Get one issue from sprint
+	public String doGetOneIssueInSprint() throws IOException {
+
+		Request request = new Request.Builder()
+				.url("https://selim22.atlassian.net/rest/agile/1.0/sprint/2?selectedIssue=TP-3").method("GET", null)
+				.addHeader("Authorization", "Basic c2VsaW1kLnJlemFAZ21haWwuY29tOm9JeWdtZ3N6SmYwV0dHV09KaXVZMDFDNQ==")
+				.addHeader("Cookie",
+						"atlassian.xsrf.token=9d4964b2-a15a-4258-b990-eaec7078709d_dbfb85561554a1e99d92965f87733bb3f2a1ebf7_lin")
+				.build();
+		Response response = client.newCall(request).execute();
+
+		return response.body().string();
+	}
+
+	// Get one issue from sprint Under Project
+	public String doGetOneIssueInSprintfromProject() throws IOException {
+
+		Request request = new Request.Builder()
+				.url("https://selim22.atlassian.net/rest/agile/1.0/board/2/?selectedSprint=2?selectedIssue=TP-3")
+				.method("GET", null)
+				.addHeader("Authorization", "Basic c2VsaW1kLnJlemFAZ21haWwuY29tOm9JeWdtZ3N6SmYwV0dHV09KaXVZMDFDNQ==")
+				.addHeader("Cookie",
+						"atlassian.xsrf.token=9d4964b2-a15a-4258-b990-eaec7078709d_dbfb85561554a1e99d92965f87733bb3f2a1ebf7_lin")
+				.build();
+		Response response = client.newCall(request).execute();
+
+		return response.body().string();
+	}
+
+// Get all issue from sprint in one project
+	public String doGetAllIssueInSprintfromProject() throws IOException {
 
 		Request request = new Request.Builder()
 				.url("https://selim22.atlassian.net/rest/agile/1.0/board/2/sprint/3/issue").method("GET", null)
