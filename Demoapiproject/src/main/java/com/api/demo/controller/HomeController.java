@@ -51,13 +51,15 @@ public class HomeController {
 		return userService.doGetJiraApi();
 	}
 	
+	// Get all project in borad
+	
 	@RequestMapping("/allprojectinborad")
 	public String getAllProject() throws Exception {
 
 		return userService.doGetAllProject();
 	}
 
-
+	// Get one project in board
 	@RequestMapping("/project")
 	public String getProject() throws Exception {
 
@@ -65,13 +67,14 @@ public class HomeController {
 	}
 	
 	
-	
+	// Get all sprint from project
 	@RequestMapping("/allsprintinproject")
 	public String getAllSprint() throws Exception {
 
 		return userService.doGetAllSprint();
 	}
 
+	// Get one sprint from project
 	@RequestMapping("/Onesprintinproject")
 	public String getOneSprintInProject() throws Exception {
 
@@ -79,25 +82,28 @@ public class HomeController {
 	}
 
 	
-	
+	// Get one sprint from sprints
 	@RequestMapping("/onesprintInSprints")
 	public String getSprintInSprints() throws Exception {
 
 		return userService.doGetOneSprintInSprints();
 	}
 
-	
+	// Get one issue from sprint
 	@RequestMapping("/oneIssueInSprint")
 	public String getIssueInSprint() throws Exception {
 
 		return userService.doGetOneIssueInSprint();
 	}
 
+	// Get one issue from sprint Under Project
 	@RequestMapping("/oneissueInSprintInproject")
 	public String getOneIssueInSprintInProject() throws Exception {
 
 		return userService.doGetOneIssueInSprintfromProject();
 	}
+	
+	// Get all issue from sprint in one project
 	@RequestMapping("/allissueInSprintInproject")
 	public String getAllIssueInSprintInProject() throws Exception {
 
